@@ -142,30 +142,11 @@ if (!Object.entries) {
   };
 }
 
-// function resetKeys() {
-//   noteFreq.forEach(function (keys, idx) {
-
-//       let keyList = Object.entries(keys);
-//       let octaveElem = document.createElement('div');
-//       octaveElem.className = 'octave';
-
-
-//       keyList.forEach(function (key) {
-//         if (key[0].length === 1) {
-//           octaveElem.appendChild(createKey(key[0], idx, key[1]));
-
-//         }
-//       });      
-//     });
-//     for (i = 0; i < 9; i++) {
-//       oscList[i] = [];
-//     }
-//   }
 
 let buildCount = 0;
 // Building the keyboard
-function setup(note1, note2, note3, note4, note5, note6, note7, note8, note9, note10, note11, note12, note13, note14, note15) {  
-  
+function setup(note1, note2, note3, note4, note5, note6, note7, note8, note9, note10, note11, note12, note13, note14, note15) {
+
   // prevents multiple keyboards being built
   if (buildCount >= 1) {
     console.log('Keyboard already built!');
@@ -212,7 +193,7 @@ function setup(note1, note2, note3, note4, note5, note6, note7, note8, note9, no
 
 // setup();
 
-
+let keyCount = 48
 function createKey(note, octave, freq) {
   let keyElement = document.createElement('div');
   let labelElement = document.createElement('div');
@@ -222,8 +203,10 @@ function createKey(note, octave, freq) {
   keyElement.dataset['note'] = note;
   keyElement.dataset['frequency'] = freq;
 
-  labelElement.innerHTML = `${note} <sub> ${octave} </sub>`;
+  labelElement.innerHTML = `${keyCount} <sub>`;
   keyElement.appendChild(labelElement);
+
+  keyCount++;
 
   keyElement.addEventListener('mousedown', notePressed, false);
   keyElement.addEventListener('mouseup', noteReleased, false);
@@ -234,8 +217,10 @@ function createKey(note, octave, freq) {
 }
 
 
+
 // Play the oscillator tone
 function playTone(freq) {
+
   let osc = audioContext.createOscillator();
   osc.connect(masterGainNode);
 
@@ -277,7 +262,7 @@ function noteReleased(event) {
   }
 }
 
-function changeGain(event) {
+function changeGain() {
   masterGainNode.gain.value = gainControl.value
 }
 
@@ -309,104 +294,147 @@ function onMIDISuccess(midiAccess) {
     input.onmidimessage = getMIDIMessage;
 }
 
-let osc = audioContext.createOscillator();
+
+let osc1 = audioContext.createOscillator();
+let osc2 = audioContext.createOscillator();
+let osc3 = audioContext.createOscillator();
+let osc4 = audioContext.createOscillator();
+let osc5 = audioContext.createOscillator();
+let osc6 = audioContext.createOscillator();
+let osc7 = audioContext.createOscillator();
+let osc8 = audioContext.createOscillator();
+let osc9 = audioContext.createOscillator();
+let osc10 = audioContext.createOscillator();
+let osc11 = audioContext.createOscillator();
+let osc12 = audioContext.createOscillator();
+let osc13 = audioContext.createOscillator();
+let osc14 = audioContext.createOscillator();
+let osc15 = audioContext.createOscillator();
+
+osc1.type = 'triangle';
+osc2.type = 'triangle';
+osc3.type = 'triangle';
+osc4.type = 'triangle';
+osc5.type = 'triangle';
+osc6.type = 'triangle';
+osc7.type = 'triangle';
+osc8.type = 'triangle';
+osc9.type = 'triangle';
+osc10.type = 'triangle';
+osc11.type = 'triangle';
+osc12.type = 'triangle';
+osc13.type = 'triangle';
+osc14.type = 'triangle';
+osc15.type = 'triangle';
 
 
-let type = wavePicker.options[wavePicker.selectedIndex].value;
+osc1.start();
+osc2.start();
+osc3.start();
+osc4.start();
+osc5.start();
+osc6.start();
+osc7.start();
+osc8.start();
+osc9.start();
+osc10.start();
+osc11.start();
+osc12.start();
+osc13.start();
+osc14.start();
+osc15.start();
 
-if (type == "custom") {
-  osc.setPeriodicWave(customWaveform);
-} else {
-  osc.type = type;
-}
 
-osc.start();
+
+
+
 
 
 
 function getMIDIMessage(message) {
-  var command = message.data[0];
-  var note = message.data[1];
-  var velocity = (message.data.length > 2) ? message.data[2] : 0; // a velocity value might not be included with a noteOff command
+  let command = message.data[0];
+  let note = message.data[1];
+  let velocity = (message.data.length > 2) ? message.data[2] : 0; // a velocity value might not be included with a noteOff command
+
 
   switch (command) {
     case 144: // noteOn
       if (velocity > 0) {
         switch (note) {
           case 48:
-            osc.frequency.value = note1.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc1.frequency.value = note1.value;
+            osc1.connect(masterGainNode);
+            return osc1;
             break;
           case 49:
-            osc.frequency.value = note2.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc2.frequency.value = note2.value;
+            osc2.connect(masterGainNode);
+            return osc2;
             break;
           case 50:
-            osc.frequency.value = note3.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc3.frequency.value = note3.value;
+            osc3.connect(masterGainNode);
+            return osc3;
             break;
           case 51:
-            osc.frequency.value = note4.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc4.frequency.value = note4.value;
+            osc4.connect(masterGainNode);
+            return osc4;
             break;
           case 52:
-            osc.frequency.value = note5.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc5.frequency.value = note5.value;
+            osc5.connect(masterGainNode);
+            return osc5;
             break;
           case 53:
-            osc.frequency.value = note6.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc6.frequency.value = note6.value;
+            osc6.connect(masterGainNode);
+            return osc6;
             break;
           case 54:
-            osc.frequency.value = note7.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc7.frequency.value = note7.value;
+            osc7.connect(masterGainNode);
+            return osc7;
             break;
           case 55:
-            osc.frequency.value = note8.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc8.frequency.value = note8.value;
+            osc8.connect(masterGainNode);
+            return osc8;
             break;
           case 56:
-            osc.frequency.value = note9.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc9.frequency.value = note9.value;
+            osc9.connect(masterGainNode);
+            return osc9;
             break;
           case 57:
-            osc.frequency.value = note10.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc10.frequency.value = note10.value;
+            osc10.connect(masterGainNode);
+            return osc10;
             break;
           case 58:
-            osc.frequency.value = note11.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc11.frequency.value = note11.value;
+            osc11.connect(masterGainNode);
+            return osc11;
             break;
           case 59:
-            osc.frequency.value = note12.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc12.frequency.value = note12.value;
+            osc12.connect(masterGainNode);
+            return osc12;
             break;
           case 60:
-            osc.frequency.value = note13.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc13.frequency.value = note13.value;
+            osc13.connect(masterGainNode);
+            return osc13;
             break;
           case 61:
-            osc.frequency.value = note14.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc14.frequency.value = note14.value;
+            osc14.connect(masterGainNode);
+            return osc14;
             break;
           case 62:
-            osc.frequency.value = note15.value;
-            osc.connect(masterGainNode);
-            return osc;
+            osc15.frequency.value = note15.value;
+            osc15.connect(masterGainNode);
+            return osc15;
             break;
           default:
             console.log('Not a valid note');
@@ -420,9 +448,74 @@ function getMIDIMessage(message) {
         noteReleased(note);
       }
       break;
-    case 128: // noteOff            
-      osc.disconnect(masterGainNode);
-      return osc;
+    case 128: // noteOff 
+      switch (note) {
+        case 48:
+          osc1.disconnect(masterGainNode);
+          return osc1;
+          break;
+        case 49:
+          osc2.disconnect(masterGainNode);
+          return osc2;
+          break;
+        case 50:        
+          osc3.disconnect(masterGainNode);
+          return osc3;
+          break;
+        case 51:          
+          osc4.disconnect(masterGainNode);
+          return osc4;
+          break;
+        case 52:          
+          osc5.disconnect(masterGainNode);
+          return osc5;
+          break;
+        case 53:          
+          osc6.disconnect(masterGainNode);
+          return osc6;
+          break;
+        case 54:          
+          osc7.disconnect(masterGainNode);
+          return osc7;
+          break;
+        case 55:          
+          osc8.disconnect(masterGainNode);
+          return osc8;
+          break;
+        case 56:          
+          osc9.disconnect(masterGainNode);
+          return osc9;
+          break;
+        case 57:          
+          osc10.disconnect(masterGainNode);
+          return osc10;
+          break;
+        case 58:          
+          osc11.disconnect(masterGainNode);
+          return osc11;
+          break;
+        case 59:          
+          osc12.disconnect(masterGainNode);
+          return osc12;
+          break;
+        case 60:          
+          osc13.disconnect(masterGainNode);
+          return osc13;
+          break;
+        case 61:          
+          osc14.disconnect(masterGainNode);
+          return osc14;
+          break;
+        case 62:          
+          osc15.disconnect(masterGainNode);
+          return osc15;
+          break;
+        default:
+          console.log('Not a valid note');
+      }
+
+
+
       break;
       // we could easily expand this switch statement to cover other types of commands such as controllers or sysex
   }

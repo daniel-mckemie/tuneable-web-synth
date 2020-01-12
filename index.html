@@ -8,6 +8,9 @@
 </head>
 
 <body>
+  <h1>Tuneable Keyboard Tool</h1>
+  <h4>A tool for users to assign frequency values to individual keys in order to hear melody lines, intervals, 
+    and harmonies in customized tuning systems.</h4>
   <div class="container">
     <div class="keyboard"></div>
   </div>
@@ -29,23 +32,40 @@
         <option value="triangle">Triangle</option>
         <option value="custom">Custom</option>
       </select>
+      <p><b>Instructions:</b> Users are to enter frequencies (in Hz) into each respective box indicated to the left (decimal numbers welcome!).
+        Users need not enter numbers into every box, but 15 options are available.  Once numbers are entered, click the <b>TUNE IT UP!</b> 
+        button below to build your keyboard!  Users then click on the corresponding numbered keys to hear the frequencies played back.
+        Any boxes without a number input will simply not play a sound.  To input new frequency values, simply refresh the page.<br /><br />   
+
+        This tool is MIDI compatabile! The numbers next to each box (48, 49, 50, etc.) correspond to MIDI Note CC numbers.  Users may plug in their 
+        own MIDI keyboards to work with their constructed scales (note: use Chrome for best results with MIDI).  More information on MIDI
+        note assignments can be found <a href="https://newt.phys.unsw.edu.au/jw/notes.html" target="_blank">HERE.</a><br /><br />
+        
+        Polyphony is available when using a MIDI keyboard, but not yet with mouse clicks.  Additionally, different waveforms are available when
+        using mouse clicks, but the waveform defaults to triangle when using a MIDI keyboard.  It is my hope to have this all ironed out in the
+        near future.<br /><br />
+        
+        This tool is very much in the prototype phase and is meant to be a useful thing for the community.  If you have any ideas or suggestions
+        on expansion/improvements, please drop me a line at daniel.mckemie [at] gmail [dot] com!
+      
+      </p>
     </div>
   </div>
-  C1: <input type="number" name="note1" id="note1"><br>
-  D1: <input type="number" name="note2" id="note2"><br>
-  E1: <input type="number" name="note3" id="note3"><br>
-  F1: <input type="number" name="note4" id="note4"><br>
-  G1: <input type="number" name="note5" id="note5"><br>
-  A1: <input type="number" name="note6" id="note6"><br>
-  B1: <input type="number" name="note7" id="note7"><br>
-  C2: <input type="number" name="note8" id="note8"><br>
-  D2: <input type="number" name="note9" id="note9"><br>
-  E2: <input type="number" name="note10" id="note10"><br>
-  F2: <input type="number" name="note11" id="note11"><br>
-  G2: <input type="number" name="note12" id="note12"><br>
-  A2: <input type="number" name="note13" id="note13"><br>
-  B2: <input type="number" name="note14" id="note14"><br>
-  C3: <input type="number" name="note15" id="note15"><br>
+  48: <input type="number" name="note1" id="note1"><br>
+  49: <input type="number" name="note2" id="note2"><br>
+  50: <input type="number" name="note3" id="note3"><br>
+  51: <input type="number" name="note4" id="note4"><br>
+  52: <input type="number" name="note5" id="note5"><br>
+  53: <input type="number" name="note6" id="note6"><br>
+  54: <input type="number" name="note7" id="note7"><br>
+  55: <input type="number" name="note8" id="note8"><br>
+  56: <input type="number" name="note9" id="note9"><br>
+  57: <input type="number" name="note10" id="note10"><br>
+  58: <input type="number" name="note11" id="note11"><br>
+  59: <input type="number" name="note12" id="note12"><br>
+  60: <input type="number" name="note13" id="note13"><br>    
+  61: <input type="number" name="note14" id="note14"><br>    
+  62: <input type="number" name="note15" id="note15"><br>    
   <button type="button" onclick="setup();">TUNE IT UP!</button>
   <script type="text/javascript" src="script.js"></script>
 </body>
