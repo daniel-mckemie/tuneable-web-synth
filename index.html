@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Simple Synthesizer</title>
+  <title>Frequency Assignable Keyboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,7 +19,7 @@
         <option value="0.0" label="Mute">
           <option value="1.0" label="100%">
       </datalist>
-    </div>
+    </div>    
     <div class="right">
       <span>Current waveform: </span>
       <select name="waveform">
@@ -31,6 +31,22 @@
       </select>
     </div>
   </div>
+  C1: <input type="number" name="note1" id="note1"><br>
+  D1: <input type="number" name="note2" id="note2"><br>
+  E1: <input type="number" name="note3" id="note3"><br>
+  F1: <input type="number" name="note4" id="note4"><br>
+  G1: <input type="number" name="note5" id="note5"><br>
+  A1: <input type="number" name="note6" id="note6"><br>
+  B1: <input type="number" name="note7" id="note7"><br>
+  C2: <input type="number" name="note8" id="note8"><br>
+  D2: <input type="number" name="note9" id="note9"><br>
+  E2: <input type="number" name="note10" id="note10"><br>
+  F2: <input type="number" name="note11" id="note11"><br>
+  G2: <input type="number" name="note12" id="note12"><br>
+  A2: <input type="number" name="note13" id="note13"><br>
+  B2: <input type="number" name="note14" id="note14"><br>
+  C3: <input type="number" name="note15" id="note15"><br>
+  <button type="button" onclick="setup();">TUNE IT UP!</button>
   <script type="text/javascript" src="script.js"></script>
 </body>
 

@@ -1,7 +1,7 @@
 .container {
   overflow-x: scroll;
   overflow-y: hidden;
-  width: 660px;
+  width: 960px;
   height: 110px;
   white-space: nowrap;
   margin: 10px;
@@ -18,7 +18,7 @@
   font: 16px "Open Sans", "Lucida Grande", "Arial", sans-serif;
   border: 1px solid black;
   border-radius: 5px;
-  width: 20px;
+  width: 55px;
   height: 80px;
   text-align: center;
   box-shadow: 2px 2px darkgray;
